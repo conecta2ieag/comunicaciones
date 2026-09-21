@@ -1,0 +1,85 @@
+---
+layout: default
+title: "Noticias"
+description: "Periódico digital interactivo - Noticias, videos y fotos"
+---
+<div class="app-title">
+  <h1></h1>
+  <p></p>
+</div>
+
+
+<div class="book-container" id="bookContainer">
+  <div class="book" id="book"></div>
+</div>
+
+<div class="controls">
+  <button class="nav-btn" id="prevBtn">‹</button>
+  <span class="page-indicator" id="pageIndicator">1 / 1</span>
+  <button class="nav-btn" id="nextBtn">›</button>
+</div>
+
+<!-- ============================================
+     DATOS COMBINADOS: noticias + videos + galerías
+     Generados con Liquid y ordenados por fecha
+     ============================================ -->
+<script id="contenido-data" type="application/json">
+[
+  {% assign items = "" | split: "" %}
+
+  {% for noticia in site.noticias %}
+    {% assign item = noticia %}
+    {% capture entry %}
+    {
+      "type": "noticia",
+      "cat": {{ noticia.category | default: "Noticias" | jsonify }},
+      "title": {{ noticia.title | jsonify }},
+      "img": {{ noticia.image | default: "" | jsonify }},
+      "author": {{ noticia.author | default: "Redacción" | jsonify }},
+      "date": {{ noticia.date | date: "%d %b %Y" | jsonify }},
+      "sortdate": {{ noticia.date | date: "%s" }},
+      "text": {{ noticia.content | jsonify }}
+    }
+    {% endcapture %}
+    {% assign items = items | push: entry %}
+  {% endfor %}
+
+  {% for video in site.data.videos %}
+    {% capture entry %}
+    {
+      "type": "video",
+      "cat": "Multimedia",
+      "title": {{ video.title | jsonify }},
+      "videoId": {{ video.video_id | jsonify }},
+      "author": {{ video.author | default: "Departamento Audiovisual" | jsonify }},
+      "date": {{ video.date | date: "%d %b %Y" | jsonify }},
+      "sortdate": {{ video.date | date: "%s" }},
+      "text": {{ video.text | jsonify }}
+    }
+    {% endcapture %}
+    {% assign items = items | push: entry %}
+  {% endfor %}
+
+  {% for galeria in site.data.galerias %}
+    {% capture fotos_json %}[{% for foto in galeria.fotos %}{{ foto | relative_url | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
+    {% capture entry %}
+    {
+      "type": "galeria",
+      "cat": "Galería",
+      "title": {{ galeria.title | jsonify }},
+      "author": {{ galeria.author | default: "Área de Comunicaciones" | jsonify }},
+      "date": {{ galeria.date | date: "%d %b %Y" | jsonify }},
+      "sortdate": {{ galeria.date | date: "%s" }},
+      "text": {{ galeria.text | jsonify }},
+      "fotos": {{ fotos_json }}
+    }
+    {% endcapture %}
+    {% assign items = items | push: entry %}
+  {% endfor %}
+
+  {% for item in items %}{{ item }}{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
+</script>
+
+<script src="{{ '/assets/js/periodico.js' | relative_url }}"></script>

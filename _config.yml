@@ -1,0 +1,79 @@
+# Configuración del Periódico Digital
+title: "Institución Educativa Atanasio Girardot"
+subtitle: "Periódico Digital Institucional"
+description: "Noticias y eventos de la Institución Educativa Atanasio Girardot"
+baseurl: "/El Bárbula"
+url: "https://jusata.github.io"
+
+# Información de la institución
+institution:
+  name: "Institución Educativa Atanasio Girardot"
+  location: "Girardota, Antioquia"
+  logo: "/assets/images/logo.png"
+  flag: "/assets/images/bandera-girardota.png"
+  anthem: "/assets/audio/himno.mp3"
+
+# Redes sociales
+social:
+  facebook: "https://facebook.com/profile.php?id=100008360917770"
+  youtube: "https://www.youtube.com/@juliansancheztaborda5203"
+  instagram: "https://www.instagram.com/ie.atanasio"
+
+# Configuración de Jekyll
+markdown: kramdown
+highlighter: rouge
+
+
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Colecciones
+collections:
+  noticias:
+    output: true
+    permalink: /noticias/:title/
+  eventos:
+    output: true
+    permalink: /eventos/:title/
+    
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "noticias"
+    values:
+      layout: "noticia"
+  - scope:
+      path: ""
+      type: "eventos"
+    values:
+      layout: "evento"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Paginación (solo para noticias)
+paginate: 9
+paginate_path: "/noticias/page:num/"
+
+# Procesamiento
+safe: false
+incremental: false
+lsi: false
+future: false
+
+# Exclude
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache

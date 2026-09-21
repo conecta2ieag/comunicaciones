@@ -1,0 +1,14 @@
+# Videos destacados para la página principal
+# Para obtener el ID de YouTube: https://www.youtube.com/watch?v=ID_AQUI
+# Usa: https://www.youtube.com/embed/ID_AQUI
+
+- title: "Ceremonia de Graduación 2024"
+  url: "https://www.youtube.com/embed/5z0xB8lRRqM"
+  description: "Emotiva ceremonia de graduación de la promoción 2024"
+  date: 2024-11-20
+
+- title: "Así vivimos la Feria de la Ciencia 2025"
+  video_id: "hoSh0D1olXo"
+  author: "Departamento Audiovisual"
+  date: 2025-10-15
+  text: "Revive los mejores momentos..."
