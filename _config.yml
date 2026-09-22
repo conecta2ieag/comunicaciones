@@ -10,13 +10,13 @@ institution:
   name: "Institución Educativa Atanasio Girardot"
   location: "Girardota, Antioquia"
   logo: "/assets/images/logo.png"
-  flag: "/assets/images/logo2.png"
+  flag: "/assets/images/bandera-girardota.png"
   anthem: "/assets/audio/himno.mp3"
 
 # Redes sociales
 social:
-  facebook: "https://facebook.com/profile.php?id=61594300811028"
-  youtube: "https://www.youtube.com/@Conecta2IEAG"
+  facebook: "https://facebook.com/profile.php?id=100008360917770"
+  youtube: "https://www.youtube.com/@juliansancheztaborda5203"
   instagram: "https://www.instagram.com/ie.atanasio"
 
 # Configuración de Jekyll
