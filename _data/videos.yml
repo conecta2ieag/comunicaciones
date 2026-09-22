@@ -1,7 +1,3 @@
-# Videos destacados para la página principal
-# Para obtener el ID de YouTube: https://www.youtube.com/watch?v=ID_AQUI
-# Usa: https://www.youtube.com/embed/ID_AQUI
-
 - title: "Podcast Institucional Episodio 01"
   url: "https://www.youtube.com/embed/sV44ikaylKo"
   description: "En este primer episodio escuchamos una carta anónima que nos acerca a la historia de alguien que ha tenido que soportar demasiado. Sus palabras nos recuerdan que pedir ayuda no es una señal de debilidad, sino una forma de proteger la vida."
